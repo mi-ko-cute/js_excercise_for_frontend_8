@@ -12,8 +12,12 @@
   // - 保持する情報
   //   - quizzes : fetchで取得したクイズデータの配列(resutls)を保持する
   //   - currentIndex : 現在何問目のクイズに取り組んでいるのかをインデックス番号で保持する
-  //   - numberOfCorrects : 正答数を保持するう
-
+  //   - numberOfCorrects : 正答数を保持する
+  const gameState = {
+    quizzes: [],
+    currentIndex: 0,
+    numberOfCorrects: 0
+  };
 
   // HTMLのid値がセットされているDOMを取得する
   const questionPElement = document.getElementById('question');
