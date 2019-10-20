@@ -19,8 +19,6 @@
     numberOfCorrects: 0
   }
 
-  console.log(gameState);
-
   // HTMLのid値がセットされているDOMを取得する
 
 
