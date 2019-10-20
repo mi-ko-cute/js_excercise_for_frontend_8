@@ -17,7 +17,7 @@
     quizzes: [],
     currentIndex: 0,
     numberOfCorrects: 0
-  }
+  };
 
   // HTMLのid値がセットされているDOMを取得する
 
