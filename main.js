@@ -27,7 +27,12 @@
   
 
   // ページの読み込みが完了したらクイズ情報を取得する
-
+  window.addEventListener('load', (event) => {
+    // クイズ情報を取得する`fetchQuizData関数`については、以下ISSUEのfeatureブランチにて実装予定
+    // https://github.com/mi-ko-cute/js_excercise_for_frontend_8/issues/5
+    
+    // fetchQuizData();
+  });
 
   // 「Restart」ボタンをクリックしたら再度クイズデータを取得する
 
