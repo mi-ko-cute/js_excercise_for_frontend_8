@@ -24,22 +24,16 @@
   const answerUlElement = document.getElementById('answers');
   const resultPElement = document.getElementById('result');
   const restartButtonElement = document.getElementById('restart-button');
-  
+
 
   // ページの読み込みが完了したらクイズ情報を取得する
   window.addEventListener('load', (event) => {
-    // クイズ情報を取得する`fetchQuizData関数`については、以下ISSUEのfeatureブランチにて実装予定
-    // https://github.com/mi-ko-cute/js_excercise_for_frontend_8/issues/5
-    
-    // fetchQuizData();
+    fetchQuizData();
   });
 
   // 「Restart」ボタンをクリックしたら再度クイズデータを取得する
   restartButtonElement.addEventListener('click', (event) => {
-    // クイズ情報を取得する`fetchQuizData関数`については、以下ISSUEのfeatureブランチにて実装予定
-    // https://github.com/mi-ko-cute/js_excercise_for_frontend_8/issues/5
-    
-    // fetchQuizData();
+    fetchQuizData();
   });
 
 
@@ -60,6 +54,26 @@
   //   - 無し
   // - 戻り値
   //   - 無し
+  function fetchQuizData() {
+    questionPElement.textContent = 'Now loading...';
+    resultPElement.textContent = '';
+    restartButtonElement.style.display = 'none';
+
+    fetch(API_URL)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        gameState.quizzes = data.results
+        gameState.currentIndex = 0;
+        gameState.numberOfCorrects = 0;
+
+        // クイズを開始するための`setNextQuize関数`は以下のissuesにて実装予定
+        // https://github.com/mi-ko-cute/js_excercise_for_frontend_8/issues/6
+
+        // setNextQuize();
+      })
+  }
 
 
   // setNextQuiz関数を実装する
