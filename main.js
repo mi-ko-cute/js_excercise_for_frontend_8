@@ -87,10 +87,8 @@
   //   - 無し
   function setNextQuiz() {
     questionPElement.textContent = '';
-    // 回答全てを削除するremoveAllAnswers関数については、以下のissuesにて実装予定
-    // https://github.com/mi-ko-cute/js_excercise_for_frontend_8/issues/8
+    removeAllAnswers();
 
-    // removeAllAnswers();
     if (gameState.currentIndex < gameState.quizzes.length) {
       const quiz = gameState.quizzes[gameState.currentIndex];
       // クイズデータを表示するmakeQuiz関数については、以下のissuesにて実装予定
@@ -122,7 +120,11 @@
   //   - 無し
   // - 戻り値
   //   - 無し
-
+  function removeAllAnswers() {
+    while (resultPElement.firstChild) {
+      resultPElement.removeChild(resultPElement.firstChild);
+    }
+  }
 
   // makeQuiz関数を実装する
   // - 実現したいこと
