@@ -29,13 +29,11 @@
   // ページの読み込みが完了したらクイズ情報を取得する
   window.addEventListener('load', (event) => {
     fetchQuizData();
-
   });
 
   // 「Restart」ボタンをクリックしたら再度クイズデータを取得する
   restartButtonElement.addEventListener('click', (event) => {
     fetchQuizData();
-
   });
 
 
@@ -70,8 +68,15 @@
         gameState.currentIndex = 0;
         gameState.numberOfCorrects = 0;
 
+<<<<<<< HEAD
         setNextQuize();
 
+=======
+        // クイズを開始するための`setNextQuize関数`は以下のissuesにて実装予定
+        // https://github.com/mi-ko-cute/js_excercise_for_frontend_8/issues/6
+
+        // setNextQuize();
+>>>>>>> develop
       })
   }
 
