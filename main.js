@@ -33,9 +33,9 @@
   });
 
   // 「Restart」ボタンをクリックしたら再度クイズデータを取得する
-  restartButtonElement.addEventListener('click', (event) => {  
+  restartButtonElement.addEventListener('click', (event) => {
     fetchQuizData();
-    
+
   });
 
 
@@ -76,7 +76,7 @@
         // setNextQuize();
 
       })
-  };
+  }
 
 
   // setNextQuiz関数を実装する
