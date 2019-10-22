@@ -96,12 +96,9 @@
       // クイズデータを表示するmakeQuiz関数については、以下のissuesにて実装予定
       // https://github.com/mi-ko-cute/js_excercise_for_frontend_8/issues/9
 
-      // makeQuiz(quiz);     
+      // makeQuiz(quiz);
     } else {
-      // 結果を表示するfinishQuiz関数については、以下のissuesにて実装予定
-      // https://github.com/mi-ko-cute/js_excercise_for_frontend_8/issues/7
-
-      // finishQuiz();
+      finishQuiz();
     }
   }
 
@@ -113,7 +110,10 @@
   //   - 無し
   // - 戻り値
   //   - 無し
-
+  function finishQuiz() {
+    resultPElement.textContent = `${gameState.numberOfCorrects}/${gameState.quizzes.length} corrects`;
+    restartButtonElement.style.display = 'block';
+  }
 
   // removeAllAnswers関数を実装する
   // - 実現したいこと
