@@ -70,10 +70,7 @@
         gameState.currentIndex = 0;
         gameState.numberOfCorrects = 0;
 
-        // クイズを開始するための`setNextQuize関数`は以下のissuesにて実装予定
-        // https://github.com/mi-ko-cute/js_excercise_for_frontend_8/issues/6
-
-        // setNextQuize();
+        setNextQuize();
 
       })
   }
@@ -91,7 +88,27 @@
   //   - 無し
   // - 戻り値
   //   - 無し
+  function setNextQuiz() {
+    questionPElement.textContent = '';
 
+    // 回答全てを削除するremoveAllAnswers関数については、以下のissuesにて実装予定
+    // https://github.com/mi-ko-cute/js_excercise_for_frontend_8/issues/8
+
+    // removeAllAnswers();
+
+    if (gameState.currentIndex < gameState.quizzes.length) {
+      const quiz = gameState.quizzes[gameState.currentIndex];
+      // クイズデータを表示するmakeQuiz関数については、以下のissuesにて実装予定
+      // https://github.com/mi-ko-cute/js_excercise_for_frontend_8/issues/9
+
+      // makeQuiz(quiz);
+    } else {
+      // 結果を表示するfinishQuiz関数については、以下のissuesにて実装予定
+      // https://github.com/mi-ko-cute/js_excercise_for_frontend_8/issues/7
+
+      // finishQuiz();
+    }
+  }
 
   // finishQuiz関数を実装する
   // - 実現したいこと
