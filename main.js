@@ -68,7 +68,7 @@
         gameState.currentIndex = 0;
         gameState.numberOfCorrects = 0;
 
-        setNextQuize();
+        setNextQuiz();
       })
   }
 
