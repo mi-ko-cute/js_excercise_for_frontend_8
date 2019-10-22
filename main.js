@@ -121,8 +121,8 @@
   // - 戻り値
   //   - 無し
   function removeAllAnswers() {
-    while (resultPElement.firstChild) {
-      resultPElement.removeChild(resultPElement.firstChild);
+    while (answerUlElement.firstChild) {
+      answerUlElement.removeChild(answerUlElement.firstChild);
     }
   }
 
