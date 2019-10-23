@@ -145,6 +145,11 @@
 
   // quizオブジェクトの中にあるcorrect_answer, incorrect_answersを結合して
   // 正解・不正解の解答をシャッフルする。
+  function buildQuiz(quiz) {
+    const answers = quiz.correct_answer.concat(incorrect_answer);
+    const shuffleQuiz = shuffle(answers);
+    return shuffleQuiz;
+  }
 
 
   // `shuffle関数` を実装する
