@@ -157,7 +157,21 @@
   //   - array : 配列
   // - 戻り値
   //   - shffuledArray : シャッフル後の配列(引数の配列とは別の配列であることに注意する)
+  function shuffle(array) {
+    const copiedArray = array.slice();
 
+    for (var i = copiedArray.length - 1; i >= 0; i--) {
+
+      // 0~iのランダムな数値を取得
+      var rand = Math.floor(Math.random() * (i + 1));
+
+      // 配列の数値を入れ替える
+      [copiedArray[i], copiedArray[rand]] = [copiedArray[rand], copiedArray[i]]
+
+    }
+
+    return copiedArray;
+  }
 
 
   // unescapeHTML関数を実装する
