@@ -147,8 +147,8 @@
   // 正解・不正解の解答をシャッフルする。
   function buildQuiz(quiz) {
     const answers = quiz.correct_answer.concat(incorrect_answer);
-    const shuffleQuiz = shuffle(answers);
-    return shuffleQuiz;
+    const shuffledQuiz = shuffle(answers);
+    return shuffledQuiz;
   }
 
 
