@@ -146,10 +146,10 @@
     const shuffledQuiz = buildQuiz(quiz);
 
     shuffledQuiz.forEach((anwer) => {
-      const ilElement = document.createElement('il');
-      ilElement.textContent = unescapeHTML(anwer);
+      const liElement = document.createElement('li');
+      liElement.textContent = unescapeHTML(anwer);
 
-      ilElement.addEventListener('click', (event) => {
+      liElement.addEventListener('click', (event) => {
         const unescapeCorrectAnswer = unescapeHTML(quiz.correct_answer);
         if (event.target.textContent === unescapeCorrectAnswer) {
           alert('Correct answer!!');
@@ -161,7 +161,7 @@
         setNextQuiz();
       })
 
-      answerUlElement.appendChild(ilElement);
+      answerUlElement.appendChild(liElement);
     })
 
 

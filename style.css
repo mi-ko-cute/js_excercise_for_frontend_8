@@ -21,7 +21,7 @@ ul {
     padding-inline-start: 0;
 }
 
-il {
+li {
     list-style-type: none;
     border: solid 1px black;
     border-radius: 10px;
@@ -30,9 +30,8 @@ il {
     line-height: 50px;
     background: #ffffff;
     word-break: break-all;
-    display: block;
 }
 
-il:hover {
+li:hover {
     background: #adc6ff;
 }
