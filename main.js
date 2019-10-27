@@ -140,34 +140,31 @@
   //   - 無し
   function makeQuiz(quiz) {
     // 問題文を表示
-    questionPElement.textcontent = quiz.question;
+    questionPElement.textContent = unescapeHTML(quiz.question);
 
-    const correctIlElement = document.createElement('il');
-    correctIlElement.textContent = quiz.correct_answer;
+    // 解答をシャッフル
+    const shuffledQuiz = buildQuiz(quiz);
 
-    correctIlElement.addEventListener('click', (event) => {
-      alert('Correct answer!!');
-      gameState.numberOfCorrects++;
-      gameState.currentIndex++;
+    shuffledQuiz.forEach((anwer) => {
+      const ilElement = document.createElement('il');
+      ilElement.textContent = unescapeHTML(anwer);
 
-      setNextQuiz();
-    })
-
-    answerUlElement.appendChild(correctIlElement);
-
-    quiz.incorrect_answers.forEach((incorrect_answer) => {
-      const incorrectIlElement = document.createElement('il');
-      incorrectIlElement.textContent = incorrect_answer;
-
-      incorrectIlElement.addEventListener('click', (event) => {
-        alert(`Wrong answer... The correct answer is ${quiz.correct_answer}`);
+      ilElement.addEventListener('click', (event) => {
+        const unescapeCorrectAnswer = unescapeHTML(quiz.correct_answer);
+        if (event.target.textContent === unescapeCorrectAnswer) {
+          alert('Correct answer!!');
+          gameState.numberOfCorrects++;
+        } else {
+          alert(`Wrong answer... The correct answer is ${unescapeCorrectAnswer}`);
+        }
         gameState.currentIndex++;
-
         setNextQuiz();
       })
 
-      answerUlElement.appendChild(incorrectIlElement);
+      answerUlElement.appendChild(ilElement);
     })
+
+
 
   }
 
