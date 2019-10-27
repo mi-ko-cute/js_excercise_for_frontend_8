@@ -91,10 +91,7 @@
 
     if (gameState.currentIndex < gameState.quizzes.length) {
       const quiz = gameState.quizzes[gameState.currentIndex];
-      // クイズデータを表示するmakeQuiz関数については、以下のissuesにて実装予定
-      // https://github.com/mi-ko-cute/js_excercise_for_frontend_8/issues/9
-
-      // makeQuiz(quiz);
+      makeQuiz(quiz);
     } else {
       finishQuiz();
     }
@@ -141,6 +138,35 @@
   //   - オブジェクト(クイズデータ1件)
   // - 戻り値無し
   //   - 無し
+  function makeQuiz(quiz) {
+    // 問題文を表示
+    questionPElement.textContent = unescapeHTML(quiz.question);
+
+    // 解答をシャッフル
+    const shuffledQuiz = buildQuiz(quiz);
+
+    shuffledQuiz.forEach((anwer) => {
+      const liElement = document.createElement('li');
+      liElement.textContent = unescapeHTML(anwer);
+
+      liElement.addEventListener('click', (event) => {
+        const unescapeCorrectAnswer = unescapeHTML(quiz.correct_answer);
+        if (event.target.textContent === unescapeCorrectAnswer) {
+          alert('Correct answer!!');
+          gameState.numberOfCorrects++;
+        } else {
+          alert(`Wrong answer... The correct answer is ${unescapeCorrectAnswer}`);
+        }
+        gameState.currentIndex++;
+        setNextQuiz();
+      })
+
+      answerUlElement.appendChild(liElement);
+    })
+
+
+
+  }
 
 
   // quizオブジェクトの中にあるcorrect_answer, incorrect_answersを結合して
