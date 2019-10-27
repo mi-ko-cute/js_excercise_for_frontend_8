@@ -174,6 +174,11 @@
 
   // quizオブジェクトの中にあるcorrect_answer, incorrect_answersを結合して
   // 正解・不正解の解答をシャッフルする。
+  function buildQuiz(quiz) {
+    const answers = quiz.incorrect_answers.concat(quiz.correct_answer);
+    const shuffledAnswers = shuffle(answers);
+    return shuffledAnswers;
+  }
 
 
   // `shuffle関数` を実装する
@@ -186,7 +191,21 @@
   //   - array : 配列
   // - 戻り値
   //   - shffuledArray : シャッフル後の配列(引数の配列とは別の配列であることに注意する)
+  function shuffle(array) {
+    const copiedArray = array.slice();
 
+    for (let i = copiedArray.length - 1; i >= 0; i--) {
+
+      // 0~iのランダムな数値を取得
+      const rand = Math.floor(Math.random() * (i + 1));
+
+      // 配列の数値を入れ替える
+      [copiedArray[i], copiedArray[rand]] = [copiedArray[rand], copiedArray[i]]
+
+    }
+
+    return copiedArray;
+  }
 
 
   // unescapeHTML関数を実装する
@@ -198,5 +217,14 @@
   //   - 文字列
   // - 戻り値
   //   - 文字列
+  function unescapeHTML(str) {
+    const div = document.createElement("div");
+    div.innerHTML = str.replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/ /g, "&nbsp;")
+      .replace(/\r/g, "&#13;")
+      .replace(/\n/g, "&#10;");
+    return div.textContent || div.innerText;
+  }
 
 })();
